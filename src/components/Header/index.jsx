@@ -3,33 +3,31 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 import {Link} from 'react-router-dom'
 import '../../fonts/style.css'
 import './style.css'
-class HomeHeader extends React.Component {
+class Header extends React.Component {
   constructor(props, context){
     super(props, context)
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
   }
+  clickHandle(){
+    window.history.back()
+  }
   render(){
     return (
-      <div id="home-header" className="clear-fix">
+      <div className="header">
         <div className="home-header-left float-left">
-          <Link to="/city">
-            <span>{this.props.cityName}</span> &nbsp;
-            <i className="icon-brand8"></i>
-          </Link>
+          <span onClick={this.clickHandle}>
+            <i className="icon-brand100"></i>
+          </span>
         </div>
-        <div className="home-header-right float-right">
+        {/*<div className="home-header-right float-right">
           <i className="icon-brand9"></i>
-        </div>
+        </div>*/}
         <div className="home-header-middle">
-          <div className="search-container">
-            {/*<i className="icon-brand2"></i>*/}
-            <span>搜索</span>
-            <input type="text" placeholder="please enter key"/>
-          </div>
+          <span>{this.props.title}</span>
         </div>
       </div>
     )
   }
 }
 
-export default HomeHeader
+export default Header

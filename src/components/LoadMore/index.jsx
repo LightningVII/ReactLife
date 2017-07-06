@@ -10,20 +10,34 @@ class LoadMore extends React.Component {
   }
 
   loadMoreHandle(){
-    console.log(this.props)
     this.props.loadMoreFn()
   }
 
   componentDidMount() {
+    const loadMore = this.props.loadMoreFn
+    const wrapper = this.refs.wrapper
+    let timeoutId
+    const callback = ()=>{
+      const top = wrapper.getBoundingClientRect().top
+      const windowHeight = window.screen.height
+      if(top && top < windowHeight){
+        loadMore()
+      }
+    }
     window.addEventListener('scroll', function(){
-      console.log(123)
+      if(this.props.isLoadingMore){
+        return 
+      }
+      if(timeoutId){
+        clearTimeout(timeoutId)
+      }
+      timeoutId = setTimeout(callback, 50)
     }.bind(this), false)
   }
 
   render() {
-    console.log(this.props.isLoadingMore)
     return (
-        <div className="load-more">
+        <div className="load-more" ref="wrapper">
             {
               this.props.isLoadingMore 
               ? <span>加载中...</span>
