@@ -1,0 +1,45 @@
+.ant-carousel .slick-slide {
+  height: 160px; }
+
+.carousel img {
+  width: 400px;
+  height: 360px; }
+
+#home-category {
+  background-color: #fff;
+  padding: 10px; }
+  #home-category .carousel-item ul {
+    width: 100%;
+    height: auto; }
+  #home-category .carousel-item a {
+    color: #333; }
+  #home-category .carousel-item li {
+    display: block;
+    list-style: none;
+    width: 20%;
+    background-repeat: no-repeat;
+    background-size: 50px auto;
+    background-position: top center;
+    text-align: center;
+    color: #666;
+    font-size: 14px; }
+  #home-category .carousel-item .icon {
+    height: 50px;
+    font-size: 0.6rem;
+    line-height: 50px; }
+  #home-category .index-container {
+    margin-top: 10px; }
+    #home-category .index-container ul {
+      width: 100%;
+      height: auto;
+      text-align: center; }
+    #home-category .index-container li {
+      list-style: none;
+      display: inline-block;
+      height: 8px;
+      width: 8px;
+      border-radius: 4px;
+      background-color: #ccc;
+      margin: 0 3px; }
+    #home-category .index-container li.selected {
+      background-color: #e9203d; }
