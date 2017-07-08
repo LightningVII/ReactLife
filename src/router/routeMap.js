@@ -1,12 +1,12 @@
 import React from 'react'
-import {Route, BrowserRouter as Router, Switch, Link} from 'react-router-dom'
-// import { Router, Route, IndexRoute } from 'react-router'
+import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
 
 import App from '../containers'
 import Home from '../containers/Home'
 import City from '../containers/City'
-// import User from '../containers/User' import Search from
-// '../containers/Search' import Detail from '../containers/Detail'
+// import User from '../containers/User' 
+import Search from '../containers/Search' 
+// import Detail from '../containers/Detail'
 import NotFound from '../containers/404'
 
 // 如果是大型项目，router部分就需要做更加复杂的配置 参见
@@ -21,6 +21,8 @@ class RouterMap extends React.Component {
                         <Switch>
                         <Route exact path="/" component={Home}/>
                         <Route path="/city" component={City}/>
+                        <Route exact path="/search/:category" component={Search}/>
+                        <Route path="/search/:category/:keyword" component={Search}/>
                         <Route component={NotFound}/> 
                         </Switch>
                     </div>

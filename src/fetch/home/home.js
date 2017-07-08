@@ -1,6 +1,14 @@
-export async function getListData(cityName, page, next) {
+const paramStr = obj => {
+    let param = ""
+    for (let [key, value] of Object.entries(obj)) {
+        if (value != null) param += "&" + key + "=" + value
+    }
+    return param.replace("&", "?")
+}
+
+export async function getListData(param, next) {
     try {
-        const result = await fetch("/api/homeList?cityName=" + cityName + "&page=" + page);
+        const result = await fetch("/api/homeList" + paramStr(param));
         const data = await result.json()
         await next(data)
             // this.setState({ "data": data.result })

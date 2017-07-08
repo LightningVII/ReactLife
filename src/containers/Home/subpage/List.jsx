@@ -19,7 +19,7 @@ class List extends React.Component {
 
   loadFirstPageData() {
     const cityName = this.props.cityName
-    getListData(cityName, 0, data => {
+    getListData({page: 0, cityName: cityName}, data => {
       this.setState({"data": data.result, hasMore: data.hasMore})
     })
   }
@@ -30,7 +30,7 @@ class List extends React.Component {
     })
     const cityName = this.props.cityName
     const page = this.state.page
-    getListData(cityName, page, data => {
+    getListData({page: page, cityName: cityName}, data => {
       this.setState({
         "data": this.state.data.concat(data.result),
         hasMore: data.hasMore,

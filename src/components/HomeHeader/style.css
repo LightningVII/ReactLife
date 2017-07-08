@@ -5,6 +5,8 @@
     color: #F2F2F2;
     font-size: 16px;
     line-height: 1; }
+  #home-header input {
+    color: #333; }
 
 .home-header-right {
   width: 50px;

@@ -29,7 +29,6 @@ class App extends Component {
 				this.state = {
 						initDone: false
 				}
-				// console.log(props.children)
 		}
 		componentDidMount() {
 				let cityName = LocalStore.getItem(CITYNAME)

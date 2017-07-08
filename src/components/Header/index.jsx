@@ -1,6 +1,5 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-import {Link} from 'react-router-dom'
 import '../../fonts/style.css'
 import './style.css'
 class Header extends React.Component {
