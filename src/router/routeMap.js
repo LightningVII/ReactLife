@@ -4,9 +4,9 @@ import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
 import App from '../containers'
 import Home from '../containers/Home'
 import City from '../containers/City'
-// import User from '../containers/User' 
+import TodoList from '../containers/TodoList' 
 import Search from '../containers/Search' 
-// import Detail from '../containers/Detail'
+import Detail from '../containers/Detail'
 import NotFound from '../containers/404'
 
 // 如果是大型项目，router部分就需要做更加复杂的配置 参见
@@ -22,7 +22,9 @@ class RouterMap extends React.Component {
                         <Route exact path="/" component={Home}/>
                         <Route path="/city" component={City}/>
                         <Route exact path="/search/:category" component={Search}/>
+                        <Route exact path="/detail/:id" component={Detail}/>
                         <Route path="/search/:category/:keyword" component={Search}/>
+                        <Route path="/todoList" component={TodoList}/>
                         <Route component={NotFound}/> 
                         </Switch>
                     </div>

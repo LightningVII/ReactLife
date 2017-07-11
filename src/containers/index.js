@@ -10,17 +10,6 @@ import * as userInfoActionsFormOtherFile from '../actions/userinfo';
 import PCIndex from '../js/components/pc_index';
 import MobileIndex from '../js/components/mobile_index';
 
-const mapStateToProps = state => {
-		return {
-			userInfo: state.userInfo
-		}
-}
-
-const mapDispatchToProps = dispatch => {
-		return {
-				userInfoActions: bindActionCreators(userInfoActionsFormOtherFile, dispatch)
-		}
-}
 
 class App extends Component {
 		constructor(props, context) {
@@ -65,6 +54,18 @@ class App extends Component {
 								</MediaQuery>
 						</div>
 				);
+		}
+}
+
+const mapStateToProps = state => {
+		return {
+			userInfo: state.userInfo
+		}
+}
+
+const mapDispatchToProps = dispatch => {
+		return {
+				userInfoActions: bindActionCreators(userInfoActionsFormOtherFile, dispatch)
 		}
 }
 

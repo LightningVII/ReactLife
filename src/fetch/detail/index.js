@@ -1,8 +1,8 @@
 import { paramStr } from '../util'
 
-export async function getListData(param, next) {
+export async function getDetailData(param, next) {
     try {
-        const result = await fetch("/api/homeList" + paramStr(param));
+        const result = await fetch("/api/detail" + paramStr(param));
         const data = await result.json()
         await next(data)
             // this.setState({ "data": data.result })
