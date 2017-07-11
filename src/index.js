@@ -12,7 +12,6 @@ const history = createBrowserHistory()
 render(
     <Provider store={store}>
         <RouteMap history={history}/>
-        {/*<App />*/}
     </Provider>,
     document.getElementById('root')
 )

@@ -7,8 +7,9 @@ import MediaQuery from 'react-responsive';
 import LocalStore from '../util/localStore';
 import {CITYNAME} from '../config/localStoreKey';
 import * as userInfoActionsFormOtherFile from '../actions/userinfo';
-import PCIndex from '../js/components/pc_index';
-import MobileIndex from '../js/components/mobile_index';
+// import PCIndex from '../js/components/pc_index';
+// import MobileIndex from '../js/components/mobileIndex';
+import NotFound from './404'
 
 
 class App extends Component {
@@ -32,26 +33,12 @@ class App extends Component {
 		render() {
 				return (
 						<div className="App">
-							{this.state.initDone ? this.props.children : <div>加载中...{this.props.userInfo.name}</div>}
 							<MediaQuery query='(min-device-width: 1224px)'>
-										<Router history={this.props.history}>
-												<Route path="/" component={PCIndex}></Route>
-												{/*<Route path="/lists/:uniquekey" component={PCNewsLists}></Route>
-														<Route path="/usercenter/" component={PCUserCenter}></Route>*/}
-												{/*<Route path="/details/:uniquekey" component={PCNewsDetails}></Route>
-														*/}
-										</Router>
-								</MediaQuery>
-								<MediaQuery query='(max-device-width: 1224px)'>
-										<Router history={this.props.history}>
-												<Route path="/" component={MobileIndex}></Route>
-												{/*<Route path="/usercenter/" component={PCUserCenter}></Route>*/}
-										</Router>
-										{/*<Router history={hashHistory}>
-												<Route exact path="/" component={MobileIndex}></Route>
-												<Route path="/usercenter/" component={PCUserCenter}></Route>
-										</Router>*/}
-								</MediaQuery>
+								<NotFound></NotFound>
+							</MediaQuery>
+							<MediaQuery query='(max-device-width: 1224px)'>
+							{this.state.initDone ? this.props.children : <div>加载中...{this.props.userInfo.name}</div>}
+							</MediaQuery>
 						</div>
 				);
 		}

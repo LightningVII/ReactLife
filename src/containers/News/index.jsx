@@ -1,14 +1,15 @@
 import React from 'react';
 import {Tabs, Carousel} from 'antd';
 const TabPane = Tabs.TabPane;
-import MobileHeader from './mobile_header';
-import PCFooter from './pc_footer';
-import MobileList from './mobile_list';
+import MobileHeader from '../../components/MobileHeader';
+import PCFooter from '../../components/PcFooter';
+import MobileList from '../../components/MobileList';
 import carousel_1 from '../../images/carousel_1.jpg'
 import carousel_2 from '../../images/carousel_2.jpg'
 import carousel_3 from '../../images/carousel_3.jpg'
 import carousel_4 from '../../images/carousel_4.jpg'
-export default class MobileIndex extends React.Component {
+
+export default class News extends React.Component {
 		render() {
 				const settings = {
 						dots: true,
