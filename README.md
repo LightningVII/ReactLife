@@ -1,6 +1,8 @@
 # ReactLife
 关于 react 的学习和思考
 
+[React实践中的一些总结和思考](https://github.com/LightningVII/ReactLife/tree/master/blog)
+
 
 #about create-react-app
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
