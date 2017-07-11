@@ -2,7 +2,6 @@ import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import createBrowserHistory from 'history/createBrowserHistory'
 import * as userInfoActionsFormOtherFile from '../../actions/userinfo';
 import Header from '../../components/Header'
 import CurrentCity from '../../components/CurrentCity'
@@ -11,15 +10,14 @@ import {getCityListData} from '../../fetch/city/city'
 import LocalStore from '../../util/localStore';
 import {CITYNAME} from '../../config/localStoreKey';
 
-const history = createBrowserHistory()
-
-class Home extends React.Component {
+class City extends React.Component {
   constructor(props, context){
     super(props, context)
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
     this.changeCity = this.changeCity.bind(this)
     this.state = {
-      data:[]
+      data:[],
+      cityName: ''
     }
   }
   changeCity(newCity){
@@ -30,12 +28,19 @@ class Home extends React.Component {
     userInfo.cityName = newCity
     this.props.userInfoActions.update(userInfo)
     LocalStore.setItem(CITYNAME, newCity)
+    this.setState({
+      cityName: newCity
+    })
     // history.push('/')
   }
   componentDidMount(){
+    const userInfo = this.props.userInfo
     getCityListData(data=>{
       this.setState({
         data: data.result
+      })
+      this.setState({
+        cityName: userInfo.cityName
       })
     })
   }
@@ -46,7 +51,7 @@ class Home extends React.Component {
     return (
       <div>
           <Header {...setting}></Header>
-          <CurrentCity cityName={this.props.userInfo.cityName}></CurrentCity>
+          <CurrentCity cityName={this.state.cityName}></CurrentCity>
           <CityList data={this.state.data} changeFn={this.changeCity}></CityList>
       </div>
     )
@@ -65,5 +70,4 @@ const mapDispatchToProps = dispatch => {
 		}
 }
 
-// export default Home
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(City)

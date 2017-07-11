@@ -1,6 +1,6 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-import FilterLink from './FilterLink'
+import FilterLink from '../../containers/FilterLink'
 import './style.css'
 
 export default class Footer extends React.Component {

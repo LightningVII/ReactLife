@@ -11,10 +11,14 @@ class VisibleTodoList extends React.Component {
         super(props, context);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
     }
+    clickHandle = e => {
+        const id = +e.target.id
+        this.props.todoActions.toggleTodo(id)
+    }
     render() {
         const data = this.props.todos
         return (
-            <TodoList data={data}></TodoList>
+            <TodoList data={data} onClick={this.clickHandle}></TodoList>
         )
     }
 }

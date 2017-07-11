@@ -1,10 +1,10 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-import Link from '../Link'
+import Link from '../../components/Footer/Link'
 
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as todoActionsFormOtherFile from '../../../actions/todo';
+import * as todoActionsFormOtherFile from '../../actions/todo';
 
 class FilterLink extends React.Component {
     constructor(props, context) {

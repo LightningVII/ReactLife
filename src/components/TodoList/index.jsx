@@ -1,11 +1,7 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-
-import Todo from './subpage/Todo'
+import Todo from './Todo'
 import './style.css'
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import * as todoActionsFormOtherFile from '../../actions/todo';
 
 class TodoList extends React.Component {
     constructor(props, context) {
@@ -14,8 +10,7 @@ class TodoList extends React.Component {
     }
     // ES7 写法 property initializers
     clickHandle = e => {
-        const id = +e.target.id
-        this.props.todoActions.toggleTodo(id)
+        this.props.onClick(e)
     }
     render() {
         const data = this.props.data
@@ -29,14 +24,4 @@ class TodoList extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-  return {todos: state.todos}
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    todoActions: bindActionCreators(todoActionsFormOtherFile, dispatch)
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(TodoList)
+export default TodoList
