@@ -1,9 +1,9 @@
 import actionTypes from '../constants/todo'
 
-export const visibilityFilter = (state = "SHOW_ALL", action) => {
+export const visibilityFilter = (state = "ALL", action) => {
     switch (action.type) {
         case actionTypes.SET_VISIBLITY_FILTER:
-            return action.visibilityFilter
+            return action.filter
         default:
             return state
     }

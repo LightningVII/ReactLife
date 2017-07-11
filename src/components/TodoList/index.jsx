@@ -14,8 +14,8 @@ class TodoList extends React.Component {
     }
     // ES7 写法 property initializers
     clickHandle = e => {
-        const id = e.target.id
-        this.props.todoActions.toggleTodo(+id)
+        const id = +e.target.id
+        this.props.todoActions.toggleTodo(id)
     }
     render() {
         const data = this.props.data

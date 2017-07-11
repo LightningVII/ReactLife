@@ -7,7 +7,6 @@ export default function userinfo(state = initialState, action) {
         case actionTypes.USERINFO_LOGIN:
             return action.data
         case actionTypes.USERINFO_UPDATE:
-            action.data.name = '阿策'
             return action.data
         case actionTypes.UPDAYE_CITYNAME:
             return action.data

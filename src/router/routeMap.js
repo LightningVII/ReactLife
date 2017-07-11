@@ -18,28 +18,27 @@ class RouterMap extends React.Component {
     render() {
         return (
             <App>
-                
-                    <MediaQuery query='(min-device-width: 1224px)'>
-                        <Router>
-                        <Switch>
-                        <Route component={NotFound}/> 
-                        </Switch>
-                        </Router>
-                    </MediaQuery>
-                    <MediaQuery query='(max-device-width: 1224px)'>
-                        <Router>
-                        <Switch>
-                        <Route exact path="/" component={Home}/>
-                        <Route path="/city" component={City}/>
-                        <Route path="/news" component={News}/>
-                        <Route exact path="/search/:category" component={Search}/>
-                        <Route exact path="/detail/:id" component={Detail}/>
-                        <Route path="/search/:category/:keyword" component={Search}/>
-                        <Route path="/todoList" component={TodoList}/>
-                        <Route component={NotFound}/> 
-                        </Switch>
-                        </Router>
-                    </MediaQuery>
+                <MediaQuery query='(min-device-width: 1224px)'>
+                    <Router>
+                    <Switch>
+                    <Route component={NotFound}/> 
+                    </Switch>
+                    </Router>
+                </MediaQuery>
+                <MediaQuery query='(max-device-width: 1224px)'>
+                    <Router>
+                    <Switch>
+                    <Route exact path="/" component={Home}/>
+                    <Route path="/city" component={City}/>
+                    <Route path="/news" component={News}/>
+                    <Route exact path="/search/:category" component={Search}/>
+                    <Route exact path="/detail/:id" component={Detail}/>
+                    <Route path="/search/:category/:keyword" component={Search}/>
+                    <Route path="/todoList" component={TodoList}/>
+                    <Route component={NotFound}/> 
+                    </Switch>
+                    </Router>
+                </MediaQuery>
             </App>
         )
     }

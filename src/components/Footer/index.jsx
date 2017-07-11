@@ -1,8 +1,9 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
+import FilterLink from './FilterLink'
 import './style.css'
 
-class Footer extends React.Component {
+export default class Footer extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
@@ -10,11 +11,11 @@ class Footer extends React.Component {
     render() {
         return (
             <div>
-                <a>asds</a>
-                <a>as</a>
+                过滤条件：&nbsp;
+                <FilterLink filter="SHOW_ALL">ALL</FilterLink>&nbsp;&nbsp;
+                <FilterLink filter="SHOW_COMPLETED">COMPLETED</FilterLink>&nbsp;&nbsp;
+                <FilterLink filter="SHOW_ACTIVE">ACTIVE</FilterLink>
             </div>
         )
     }
 }
-
-export default Footer

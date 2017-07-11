@@ -30,7 +30,7 @@ class Home extends React.Component {
     userInfo.cityName = newCity
     this.props.userInfoActions.update(userInfo)
     LocalStore.setItem(CITYNAME, newCity)
-    history.push('/')
+    // history.push('/')
   }
   componentDidMount(){
     getCityListData(data=>{

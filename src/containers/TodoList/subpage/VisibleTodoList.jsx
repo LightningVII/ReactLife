@@ -12,27 +12,31 @@ class VisibleTodoList extends React.Component {
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
     }
     render() {
+        const data = this.props.todos
         return (
-            <TodoList data={this.props.todos}></TodoList>
+            <TodoList data={data}></TodoList>
         )
     }
 }
 
 const getVisibleTodos = (todos, filter) => {
     switch(filter){
-        case "SHOW_ALL":
+        case "ALL":
             return todos
-        case "SHOW_COMPLETED":
+        case "COMPLETED":
             return todos.filter(t => t.completed)
-        case "SHOW_ACTIVE":
+        case "ACTIVE":
             return todos.filter(t => !t.completed)
         default:
-            return todos
+            return []
     }
 }
 
 const mapStateToProps = state => {
-  return {todos: getVisibleTodos(state.todos, state.visibilityFilter)}
+  return {
+      todos: getVisibleTodos(state.todos, state.visibilityFilter),
+      visibilityFilter: state.visibilityFilter
+  }
 }
 
 const mapDispatchToProps = dispatch => {
