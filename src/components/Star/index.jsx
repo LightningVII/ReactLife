@@ -15,12 +15,17 @@ class Star extends React.Component {
             star %= 5
         }
 
+        const forStar = length => {
+            var res = [];
+            for(var i=0;i<length;i++){
+                res.push(<i key={i} className='icon-brand44'></i>)
+            }
+            return res
+        }
+
         return (
             <div className="star-container">
-                {[1, 2, 3, 4, 5].map((item, index) => {
-                    const lightClass = star >= item ? ' light' : ''
-                    return <i key={index} className={'icon-brand44' + lightClass}></i>
-                })}
+                { forStar(star) }
             </div>
         )
     }

@@ -6,7 +6,9 @@ import DetailInfo from '../../../components/DetailInfo'
 class Info extends React.Component {
     constructor(props, context) {
         super(props, context);
-        this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+        this.shouldComponentUpdate = PureRenderMixin
+            .shouldComponentUpdate
+            .bind(this);
         this.state = {
             info: false
         }
@@ -14,11 +16,10 @@ class Info extends React.Component {
     render() {
         return (
             <div>
-                {
-                    this.state.info
+                {this.state.info
                     ? <DetailInfo data={this.state.info}/>
                     : ''
-                }
+}
             </div>
         )
     }
@@ -31,16 +32,12 @@ class Info extends React.Component {
         const that = this
         getDetailData({
             id: detailId
-        },function(data){
-            that.setState({
-                info: data.result
-            })
+        }, data => {
+            that.setState({info: data.result})
         }).catch(ex => {
             console.log(ex)
             console.log(process.env)
-            // if () {
-            //     console.error('详情页，获取商户信息出错')
-            // }
+            // if () {     console.error('详情页，获取商户信息出错') }
         })
     }
 }

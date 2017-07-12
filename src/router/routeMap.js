@@ -5,8 +5,9 @@ import MediaQuery from 'react-responsive';
 import App from '../containers'
 import Home from '../containers/Home'
 import City from '../containers/City'
-import TodoList from '../containers/TodoList' 
-import Search from '../containers/Search' 
+import TodoList from '../containers/TodoList'
+import Search from '../containers/Search'
+import Login from '../containers/Login'
 import Detail from '../containers/Detail'
 import News from '../containers/News'
 import NotFound from '../containers/404'
@@ -20,23 +21,24 @@ class RouterMap extends React.Component {
             <App>
                 <MediaQuery query='(min-device-width: 1224px)'>
                     <Router>
-                    <Switch>
-                    <Route component={NotFound}/> 
-                    </Switch>
+                        <Switch>
+                            <Route component={NotFound}/>
+                        </Switch>
                     </Router>
                 </MediaQuery>
                 <MediaQuery query='(max-device-width: 1224px)'>
                     <Router>
-                    <Switch>
-                    <Route exact path="/" component={Home}/>
-                    <Route path="/city" component={City}/>
-                    <Route path="/news" component={News}/>
-                    <Route exact path="/search/:category" component={Search}/>
-                    <Route exact path="/detail/:id" component={Detail}/>
-                    <Route path="/search/:category/:keyword" component={Search}/>
-                    <Route path="/todoList" component={TodoList}/>
-                    <Route component={NotFound}/> 
-                    </Switch>
+                        <Switch>
+                            <Route exact path="/" component={Home}/>
+                            <Route path="/login" component={Login}/>
+                            <Route path="/city" component={City}/>
+                            <Route path="/news" component={News}/>
+                            <Route exact path="/search/:category" component={Search}/>
+                            <Route exact path="/detail/:id" component={Detail}/>
+                            <Route path="/search/:category/:keyword" component={Search}/>
+                            <Route path="/todoList" component={TodoList}/>
+                            <Route component={NotFound}/>
+                        </Switch>
                     </Router>
                 </MediaQuery>
             </App>

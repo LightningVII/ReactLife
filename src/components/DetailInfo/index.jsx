@@ -31,7 +31,8 @@ class DetailInfo extends React.Component {
                     </div>
                 </div>
                 {/* 设置 innerHTML */}
-                <p dangerouslySetInnerHTML={{__html: data.paragraph}} className="info-desc"></p>
+                <p className="info-desc">{data.paragraph}</p>
+                <p className="info-desc">营业时间：{data.date}</p>
             </div>
         )
     }

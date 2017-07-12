@@ -31,7 +31,8 @@ class City extends React.Component {
     this.setState({
       cityName: newCity
     })
-    // history.push('/')
+    const history = this.props.history
+    history.push('/')
   }
   componentDidMount(){
     const userInfo = this.props.userInfo

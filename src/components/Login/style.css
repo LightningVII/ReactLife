@@ -1,0 +1,11 @@
+#login_components {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem; }
+  #login_components .login-form {
+    max-width: 300px; }
+  #login_components .login-form-forgot {
+    float: right; }
+  #login_components .login-form-button {
+    width: 100%; }
