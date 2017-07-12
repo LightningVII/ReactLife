@@ -8,7 +8,9 @@ import './style.css'
 class DetailInfo extends React.Component {
     constructor(props, context) {
         super(props, context);
-        this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+        this.shouldComponentUpdate = PureRenderMixin
+            .shouldComponentUpdate
+            .bind(this);
     }
     render() {
         // 获取数据
@@ -25,9 +27,10 @@ class DetailInfo extends React.Component {
                         <div className="star-container">
                             {/* 引用 Star 组件 */}
                             <Star star={data.star}/>
-                            <span className="price">￥{data.price}</span>
                         </div>
-                        <p className="sub-title">{data.cname}</p>
+                        <p className="sub-title">{data.cname}
+                            <span className="price">￥{data.price}</span>
+                        </p>
                     </div>
                 </div>
                 {/* 设置 innerHTML */}

@@ -13,7 +13,7 @@ export async function getListData(param, next) {
 
 export async function getAdData(next) {
     try {
-        const result = await fetch("/foo");
+        const result = await fetch("/api/foo");
         const data = await result.json()
         await next(data)
             // this.setState({ "data": data.result })

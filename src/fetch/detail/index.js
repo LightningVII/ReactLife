@@ -12,7 +12,7 @@ export async function getDetailData(param, next) {
 
 export async function getAdData(next) {
     try {
-        const result = await fetch("/foo");
+        const result = await fetch("/api/foo");
         const data = await result.json()
         await next(data)
     } catch (err) {
