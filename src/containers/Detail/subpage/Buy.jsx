@@ -15,38 +15,33 @@ class Buy extends React.Component {
             isStore: false
         }
     }
-    render() {
-        return (
-            <BuyAndStore isStore={this.state.isStore} buyHandle={this.buyHandle.bind(this)} storeHandle={this.storeHandle.bind(this)}/>
-        )
-    }
-    componentDidMount() {
-        // 验证当前商户是否收藏
-        this.checkStoreState()
-    }
     // 检验当前商户是否被收藏
     checkStoreState() {
         const id = this.props.id
         const store = this.props.store
 
-        // store.forEach(item => {
-        //     if (item.id === id) {
-        //         // 已经被收藏
-        //         this.setState({
-        //             isStore: true
-        //         })
-        //         return false
-        //     }
-        // })
+        store.forEach(item => {
+            if (item.id === id) {
+                // 已经被收藏
+                this.setState({
+                    isStore: true
+                })
+                return false
+            }
+        })
     }
     // 检查登录状态
     loginCheck() {
         const id = this.props.id
-        const userinfo = this.props.userinfo
-        if (!userinfo.username) {
+        const userInfo = this.props.userInfo
+        if (!userInfo.username) {
             const history = this.props.history
             // 跳转到登录页面的时候，要传入目标router，以便登录完了可以自己跳转回来
-            history.push('/Login/' + encodeURIComponent('/detail/' + id))
+            const location = {
+                pathname: '/Login',
+                state: { path: encodeURIComponent('/detail/' + id) }
+            }
+            history.push(location)
             return false
         }
         return true
@@ -87,11 +82,20 @@ class Buy extends React.Component {
             isStore: !this.state.isStore
         })
     }
+    render() {
+        return (
+            <BuyAndStore isStore={this.state.isStore} buyHandle={this.buyHandle.bind(this)} storeHandle={this.storeHandle.bind(this)}/>
+        )
+    }
+    componentDidMount() {
+        // 验证当前商户是否收藏
+        this.checkStoreState()
+    }
 }
 
 function mapStateToProps(state) {
     return {
-        userinfo: state.userinfo,
+        userInfo: state.userInfo,
         store: state.store
     }
 }

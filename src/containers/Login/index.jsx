@@ -3,7 +3,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as userInfoActionsFromOtherFile from '../../actions/userinfo' 
+import * as userInfoActionsFromOtherFile from '../../actions/userinfo'
 
 import Header from '../../components/Header'
 import LoginComponent from '../../components/Login'
@@ -20,7 +20,8 @@ class Login extends React.Component {
         const userInfo = this.props.userInfo
         if (userInfo.username) {
             // 已经登录，则跳转到用户主页
-            this.goUserPage();
+            const history = this.props.history
+            history.push('/')
         } else {
             // 未登录，则验证结束
             this.setState({
@@ -37,11 +38,11 @@ class Login extends React.Component {
         userInfo.username = username
         actions.update(userInfo)
 
-        const params = this.props.match.params
-        const router = params.router
-        if (router) {
+        const params = this.props.location.state
+        if (params && params.path) {
+            const router = params.path
             // 跳转到指定的页面
-            history.push(router)
+            history.push(decodeURIComponent(router))
         } else {
             // 跳转到用户主页
             this.goUserPage()

@@ -1,5 +1,5 @@
 import actionTypes from '../constants/store'
-import { Map, List } from 'immutable'
+import { List } from 'immutable'
 
 let initialState = List([{ id: 30, text: "text3" }]);
 

@@ -19,7 +19,7 @@ class Detail extends React.Component {
       <div>
         <Header title="商品详情"></Header>
         <Info id={param.id}></Info>
-        <Buy id={param.id}></Buy>
+        <Buy history={this.props.history} id={param.id}></Buy>
         <Comment id={param.id}></Comment>
       </div>
     )

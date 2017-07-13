@@ -23,7 +23,7 @@ class NormalLoginForm extends React.Component {
 	//   this.props.loginHandle(e.target)
   }
   render() {
-    const { getFieldDecorator } = this.props.form;
+    const { getFieldDecorator,getFieldsError } = this.props.form;
     return (
 		<div id="login_components">
       <Form onSubmit={this.handleSubmit} className="login-form">
@@ -49,7 +49,7 @@ class NormalLoginForm extends React.Component {
             <Checkbox>Remember me</Checkbox>
           )}
           <a className="login-form-forgot" href="">Forgot password</a>
-          <Button disabled={hasErrors(getFieldDecorator())} type="primary" htmlType="submit" className="login-form-button">
+          <Button disabled={hasErrors(getFieldsError())} type="primary" htmlType="submit" className="login-form-button">
             Log in
           </Button>
           Or <a href="">register now!</a>

@@ -1,6 +1,6 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-import '../../fonts/style.css'
+import {Icon} from 'antd'
 import './style.css'
 class Header extends React.Component {
   constructor(props, context){
@@ -15,12 +15,9 @@ class Header extends React.Component {
       <div className="header">
         <div className="home-header-left float-left">
           <span onClick={this.clickHandle}>
-            <i className="icon-brand100"></i>
+            <Icon type="left" />
           </span>
         </div>
-        {/*<div className="home-header-right float-right">
-          <i className="icon-brand9"></i>
-        </div>*/}
         <div className="home-header-middle">
           <span>{this.props.title}</span>
         </div>

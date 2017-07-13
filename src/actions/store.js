@@ -1,5 +1,4 @@
 import actionTypes from '../constants/store'
-let nextTodoId = 0
 export const update = data => {
     return {
         type: actionTypes.STORE_UPDATE,

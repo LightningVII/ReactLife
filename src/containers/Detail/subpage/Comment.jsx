@@ -6,7 +6,7 @@ import ListComponent from '../../../components/CommentList'
 import LoadMore from '../../../components/LoadMore'
 
 // import './style.css'
-
+let isMounted = true
 class Comment extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -36,7 +36,11 @@ class Comment extends React.Component {
         )
     }
     componentDidMount() {
+        isMounted = true
         this.loadFirstPageData();
+    }
+    componentWillUnmount() {
+        isMounted = false
     }
     // 获取首页数据
     loadFirstPageData() {
@@ -45,7 +49,9 @@ class Comment extends React.Component {
             page: 0,
             id: id
         }, data => {
-            this.resultHandle(data)
+            if(isMounted){
+                this.resultHandle(data)
+            }
         })
     }
     // 加载更多数据

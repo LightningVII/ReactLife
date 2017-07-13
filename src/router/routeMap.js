@@ -8,6 +8,7 @@ import City from '../containers/City'
 import TodoList from '../containers/TodoList'
 import Search from '../containers/Search'
 import Login from '../containers/Login'
+import User from '../containers/User'
 import Detail from '../containers/Detail'
 import News from '../containers/News'
 import NotFound from '../containers/404'
@@ -30,6 +31,7 @@ class RouterMap extends React.Component {
                     <Router>
                         <Switch>
                             <Route exact path="/" component={Home}/>
+                            <Route path="/user" component={User}/>
                             <Route path="/login" component={Login}/>
                             <Route path="/city" component={City}/>
                             <Route path="/news" component={News}/>
