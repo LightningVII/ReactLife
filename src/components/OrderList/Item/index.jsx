@@ -12,6 +12,46 @@ class ListItem extends React.Component {
             commentState: 2  // commentState  0-未评价 1-评价中 2-已评价
         }
     }
+
+    componentDidMount() {
+        // 将状态维护到 state 中
+        this.setState({
+            commentState: +this.props.data.commentState
+        })
+    }
+    showComment() {
+        // 显示输入框
+        this.setState({
+            commentState: 1
+        })
+    }
+    submitComment() {
+        // 获取操作函数
+        const submitComment = this.props.submitComment
+        // 获取id
+        const id = this.props.data.id
+        // 获取评价内容
+        const commentText = this.refs.commentText
+        const value = commentText.value.trim()
+        if (!value) {
+            return
+        }
+
+        // 执行数据提交
+        submitComment(id, value, this.commentOk)
+    }
+    commentOk = () => {
+        // 已经评价，修改状态
+        this.setState({
+            commentState: 2
+        })
+    }
+    hideComment() {
+        // 隐藏输入框
+        this.setState({
+            commentState: 0
+        })
+    }
     render() {
         const data = this.props.data
 
@@ -53,45 +93,6 @@ class ListItem extends React.Component {
                 }
             </div>
         )
-    }
-    componentDidMount() {
-        // 将状态维护到 state 中
-        this.setState({
-            commentState: +this.props.data.commentState
-        })
-    }
-    showComment() {
-        // 显示输入框
-        this.setState({
-            commentState: 1
-        })
-    }
-    submitComment() {
-        // 获取操作函数
-        const submitComment = this.props.submitComment
-        // 获取id
-        const id = this.props.data.id
-        // 获取评价内容
-        const commentText = this.refs.commentText
-        const value = commentText.value.trim()
-        if (!value) {
-            return
-        }
-
-        // 执行数据提交
-        submitComment(id, value, this.commentOk)
-    }
-    commentOk = () => {
-        // 已经评价，修改状态
-        this.setState({
-            commentState: 2
-        })
-    }
-    hideComment() {
-        // 隐藏输入框
-        this.setState({
-            commentState: 0
-        })
     }
 }
 
