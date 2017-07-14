@@ -2,7 +2,7 @@ import { paramStr } from '../util'
 
 export async function getListData(param, next) {
     try {
-        const result = await fetch("/api/homeList" + paramStr(param));
+        const result = await fetch("/api/home/list" + paramStr(param));
         const data = await result.json()
         await next(data)
             // this.setState({ "data": data.result })

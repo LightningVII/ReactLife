@@ -1,7 +1,5 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
-import { Link } from 'react-router-dom'
-
 import './style.css'
 
 class ListItem extends React.Component {
@@ -59,7 +57,7 @@ class ListItem extends React.Component {
             <div className="order-item-container">
                 <div className="clear-fix">
                     <div className="order-item-img float-left">
-                        <img src={data.img}/>
+                        <img alt={data.title} src={data.img}/>
                     </div>
                     <div className="order-item-comment float-right">
                         {

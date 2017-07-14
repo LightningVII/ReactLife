@@ -1,6 +1,6 @@
 export async function getCityListData(next) {
     try {
-        const result = await fetch("/api/cityList");
+        const result = await fetch("/api/city/list");
         const data = await result.json()
         await next(data)
     } catch (err) {

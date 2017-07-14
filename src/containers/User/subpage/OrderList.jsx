@@ -1,10 +1,6 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { getOrderList } from '../../../fetch/orderList'
-// import { connect } from 'react-redux'
-// import { bindActionCreators } from 'redux'
-// import * as userInfoActionsFromOtherFile from '../../actions/userinfo'
-
 import List from '../../../components/OrderList'
 
 let isMounted = true
@@ -21,9 +17,11 @@ class OrderList extends React.Component {
         getOrderList({
           id: this.props.username
         }).then(data=>{
-          this.setState({
-            data: data.result
-          })
+            if(isMounted){
+                this.setState({
+                    data: data.result
+                })
+            }
         })
     }
     // 提交评论数据
@@ -56,16 +54,4 @@ class OrderList extends React.Component {
         )
     }
 }
-
-// function mapStateToProps(state) {
-//     return {
-//         userInfo: state.userInfo
-//     }
-// }
-
-// function mapDispatchToProps(dispatch) {
-//     return {
-//         userInfoActions: bindActionCreators(userInfoActionsFromOtherFile, dispatch)
-//     }
-// }
 export default OrderList
