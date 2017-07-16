@@ -2,7 +2,7 @@ import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 
 import SearchInput from '../SearchInput'
-import '../../fonts/style.css'
+import '../../assets/fonts/style.css'
 import './style.css'
 
 class SearchHeader extends React.Component {

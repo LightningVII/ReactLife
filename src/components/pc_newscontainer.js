@@ -5,10 +5,10 @@ const TabPane = Tabs.TabPane;
 import PCNewsBlock from './pc_news_block';
 import PCNewsImageBlock from './pc_news_image_block';
 import PCProduct from './pc_products';
-import carousel_1 from '../../images/carousel_1.jpg'
-import carousel_2 from '../../images/carousel_2.jpg'
-import carousel_3 from '../../images/carousel_3.jpg'
-import carousel_4 from '../../images/carousel_4.jpg'
+import carousel_1 from '../../assets/images/carousel_1.jpg'
+import carousel_2 from '../../assets/images/carousel_2.jpg'
+import carousel_3 from '../../assets/images/carousel_3.jpg'
+import carousel_4 from '../../assets/images/carousel_4.jpg'
 import '../../App.css';
 export default class PCNewsContainer extends React.Component {
 		render() {

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Row, Col} from 'antd';
-import logo from '../../images/logo.png';
-import '../../css/pc.css';
+import logo from '../../assets/images/logo.png';
+import './style.css';
 import {
     Menu,
     Icon,
