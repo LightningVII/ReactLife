@@ -31,7 +31,7 @@ class Home extends React.Component {
 
 const mapStateToProps = state => {
 		return {
-			userInfo: state.userInfo
+			userInfo: state.get("userInfo")
 		}
 }
 

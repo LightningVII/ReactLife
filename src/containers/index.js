@@ -45,7 +45,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
 		return {
-			userInfo: state.userInfo
+			userInfo: state.get("userInfo")
 		}
 }
 

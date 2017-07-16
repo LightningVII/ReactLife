@@ -61,7 +61,7 @@ class City extends React.Component {
 
 const mapStateToProps = state => {
 		return {
-			userInfo: state.userInfo
+			userInfo: state.get("userInfo")
 		}
 }
 

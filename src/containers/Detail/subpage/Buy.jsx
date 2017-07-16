@@ -95,8 +95,8 @@ class Buy extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        userInfo: state.userInfo,
-        store: state.store
+        userInfo: state.get("userInfo"),
+        store: state.get("store")
     }
 }
 

@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux-immutable'
 import userInfo from './userinfo'
 import { todos } from './todo'
 import { visibilityFilter } from './visibilityFilter'

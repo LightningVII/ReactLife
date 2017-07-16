@@ -104,7 +104,7 @@ class List extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return {userInfo: state.userInfo}
+  return {userInfo: state.get("userInfo")}
 }
 
 const mapDispatchToProps = dispatch => {
