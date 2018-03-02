@@ -1,5 +1,5 @@
 import React from 'react'
-import PureRenderMixin from 'react-addons-pure-render-mixin'
+
 import ReactSwipe from 'react-swipe';
 import {Link} from 'react-router-dom';
 
@@ -8,9 +8,6 @@ import './style.css'
 class Gategory extends React.Component {
     constructor(props, context) {
         super(props, context)
-        this.shouldComponentUpdate = PureRenderMixin
-            .shouldComponentUpdate
-            .bind(this)
         this.state = {
             index: 0
         }

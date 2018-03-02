@@ -1,5 +1,5 @@
 import React from 'react'
-import PureRenderMixin from 'react-addons-pure-render-mixin'
+
 
 import Header from '../components/Header'
 import CurrentCity from '../components/CurrentCity'
@@ -10,7 +10,7 @@ const history = createBrowserHistory()
 class City extends React.Component {
   constructor(props, context){
     super(props, context)
-    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
+    
     this.state = {
       data:[]
     }

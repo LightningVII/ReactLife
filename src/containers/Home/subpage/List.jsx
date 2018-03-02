@@ -1,5 +1,5 @@
 import React from 'react'
-import PureRenderMixin from 'react-addons-pure-render-mixin'
+
 import ListComponent from '../../../components/List'
 import LoadMore from '../../../components/LoadMore'
 import {getListData} from '../../../fetch/home/home'
@@ -7,7 +7,7 @@ import {getListData} from '../../../fetch/home/home'
 class List extends React.Component {
   constructor(props, context) {
     super(props, context)
-    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
+    
     this.loadMoreData = this.loadMoreData.bind(this)
     this.state = {
       data: [],

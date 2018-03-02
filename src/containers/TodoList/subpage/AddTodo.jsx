@@ -1,39 +1,43 @@
 import React from 'react'
-import PureRenderMixin from 'react-addons-pure-render-mixin'
 
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import * as todoActionsFormOtherFile from '../../../actions/todo';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as todoActionsFormOtherFile from '../../../actions/todo'
 
 class AddTodo extends React.Component {
-    constructor(props, context) {
-        super(props, context);
-        this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
-        this.addItem = this.addItem.bind(this)
-        this.input = null
+  constructor (props, context) {
+    super(props, context)
+
+    this.addItem = this.addItem.bind(this)
+    this.input = null
+  }
+  addItem (e) {
+    e.preventDefault()
+    if (!this.input.value.trim()) {
+      return
     }
-    addItem(e){
-        e.preventDefault()
-        if(!this.input.value.trim()){
-            return
-        }
-        this.props.todoActions.addItem(this.input.value)
-        this.input.value = ""
-    }
-    render() {
-        return (
-            <div>
-                <form onSubmit={this.addItem} action="">
-                <input type="text" ref={node=>{ this.input = node }}/>
-                <button type="submit">添加</button>
-                </form>
-            </div>
-        )
-    }
+    this.props.todoActions.addItem(this.input.value)
+    this.input.value = ''
+  }
+  render () {
+    return (
+      <div>
+        <form onSubmit={this.addItem} action=''>
+          <input
+            type='text'
+            ref={node => {
+              this.input = node
+            }}
+          />
+          <button type='submit'>添加</button>
+        </form>
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = state => {
-  return {todo: state.todos}
+  return { todo: state.todos }
 }
 
 const mapDispatchToProps = dispatch => {

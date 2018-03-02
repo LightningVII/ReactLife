@@ -1,6 +1,6 @@
 import React from 'react'
-import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
-import MediaQuery from 'react-responsive';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+import MediaQuery from 'react-responsive'
 
 import App from '../containers'
 import Home from '../containers/Home'
@@ -17,34 +17,38 @@ import NotFound from '../containers/404'
 // https://github.com/reactjs/react-router/tree/master/examples/huge-apps
 
 class RouterMap extends React.Component {
-    render() {
-        return (
-            <App>
-                <MediaQuery query='(min-device-width: 1224px)'>
-                    <Router>
-                        <Switch>
-                            <Route component={NotFound}/>
-                        </Switch>
-                    </Router>
-                </MediaQuery>
-                <MediaQuery query='(max-device-width: 1224px)'>
-                    <Router>
-                        <Switch>
-                            <Route exact path="/" component={Home}/>
-                            <Route path="/user" component={User}/>
-                            <Route path="/login" component={Login}/>
-                            <Route path="/city" component={City}/>
-                            <Route path="/news" component={News}/>
-                            <Route exact path="/search/:category/:keyword?" component={Search}/>
-                            <Route exact path="/detail/:id" component={Detail}/>
-                            <Route path="/todoList" component={TodoList}/>
-                            <Route component={NotFound}/>
-                        </Switch>
-                    </Router>
-                </MediaQuery>
-            </App>
-        )
-    }
+  render () {
+    return (
+      <App>
+        <MediaQuery query='(min-device-width: 1224px)'>
+          <Router>
+            <Switch>
+              <Route component={NotFound} />
+            </Switch>
+          </Router>
+        </MediaQuery>
+        <MediaQuery query='(max-device-width: 1224px)'>
+          <Router>
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/user' component={User} />
+              <Route path='/login' component={Login} />
+              <Route path='/city' component={City} />
+              <Route path='/news' component={News} />
+              <Route
+                exact
+                path='/search/:category/:keyword?'
+                component={Search}
+              />
+              <Route exact path='/detail/:id' component={Detail} />
+              <Route path='/todoList' component={TodoList} />
+              <Route component={NotFound} />
+            </Switch>
+          </Router>
+        </MediaQuery>
+      </App>
+    )
+  }
 }
 
 export default RouterMap

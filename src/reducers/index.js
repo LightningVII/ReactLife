@@ -5,8 +5,8 @@ import { visibilityFilter } from './visibilityFilter'
 import store from './store'
 
 export default combineReducers({
-    userInfo,
-    todos,
-    store,
-    visibilityFilter
+  userInfo,
+  todos,
+  store,
+  visibilityFilter
 })
