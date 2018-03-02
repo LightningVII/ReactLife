@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchInput from '../SearchInput'
 import { Link } from 'react-router-dom'
-import { Icon } from 'antd'
+import Icon from 'antd/lib/icon'
 import './style.css'
 export default class HomeHeader extends React.Component {
   constructor (props, context) {
@@ -23,7 +23,7 @@ export default class HomeHeader extends React.Component {
             <span>{this.props.cityName}</span>
           </Link>
         </div>
-        <div>
+        <div className='home-header-right float-right'>
           <Link to='/user'>
             <Icon type='user' />
           </Link>

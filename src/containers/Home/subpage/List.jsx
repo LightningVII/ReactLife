@@ -2,12 +2,12 @@ import React from 'react'
 
 import ListComponent from '../../../components/List'
 import LoadMore from '../../../components/LoadMore'
-import {getListData} from '../../../fetch/home/home'
+import { getListData } from '../../../fetch/home/home'
 
 class List extends React.Component {
-  constructor(props, context) {
+  constructor (props, context) {
     super(props, context)
-    
+
     this.loadMoreData = this.loadMoreData.bind(this)
     this.state = {
       data: [],
@@ -17,22 +17,22 @@ class List extends React.Component {
     }
   }
 
-  loadFirstPageData() {
+  loadFirstPageData () {
     const cityName = this.props.cityName
-    getListData({page: 0, cityName: cityName}, data => {
-      this.setState({"data": data.result, hasMore: data.hasMore})
+    getListData({ page: 0, cityName: cityName }, data => {
+      this.setState({ data: data.result, hasMore: data.hasMore })
     })
   }
 
-  loadMoreData() {
+  loadMoreData () {
     this.setState({
       isLoadingMore: true
     })
     const cityName = this.props.cityName
     const page = this.state.page
-    getListData({page: page, cityName: cityName}, data => {
+    getListData({ page: page, cityName: cityName }, data => {
       this.setState({
-        "data": this.state.data.concat(data.result),
+        data: this.state.data.concat(data.result),
         hasMore: data.hasMore,
         page: page + 1,
         isLoadingMore: false
@@ -40,18 +40,21 @@ class List extends React.Component {
     })
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.loadFirstPageData()
   }
-  render() {
+  render () {
     return (
       <div>
         <h2>猜你喜欢</h2>
         {this.state.data.length
-          ? <ListComponent data={this.state.data}></ListComponent>
+          ? <ListComponent data={this.state.data} />
           : <div>加载中</div>}
         {this.state.hasMore
-          ? <LoadMore isLoadingMore={this.state.isLoadingMore} loadMoreFn={this.loadMoreData}></LoadMore>
+          ? <LoadMore
+            isLoadingMore={this.state.isLoadingMore}
+            loadMoreFn={this.loadMoreData}
+            />
           : ''}
 
       </div>
