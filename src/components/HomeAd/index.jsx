@@ -1,5 +1,4 @@
 import React from 'react'
-
 import './style.css'
 
 class HomeHeader extends React.Component {
@@ -8,15 +7,17 @@ class HomeHeader extends React.Component {
       <div id='home-ad'>
         <h2>超值特惠</h2>
         <div className='ad-container clear-fix'>
-          {this.props.data.map((item, index) => {
-            return (
-              <div key={index} className='ad-item float-left'>
-                <a href={item.link} target='_blank'>
-                  <img src={item.img} alt={item.title} />
-                </a>
-              </div>
-            )
-          })}
+          <ul>
+            {this.props.data.map((item, index) => {
+              return (
+                <li key={index} className='ad-item'>
+                  <a href={item.link} target='_blank'>
+                    <img src={item.img} alt={item.title} />
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
         </div>
       </div>
     )
